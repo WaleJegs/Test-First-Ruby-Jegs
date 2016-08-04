@@ -1,0 +1,96 @@
+class RPNCalculator
+    attr_accessor :calculator 
+	
+	def initalize
+		@calculator = RNPCalculator.new 
+	end
+	
+	def self.calculator
+		@calculator = []
+	end 
+	
+	def calculator.push(n)
+		calculator << n 
+	end
+	
+	def calculator.plus
+		i = 0 
+		n = (calculator.count - 1)
+		result = []
+		if calculator.count == 2  
+				result << (calculator[i] + calculator[n])
+				calculator.delete_at(0)
+				calculator << result[0]
+				calculator.delete_at(0)
+		elsif calculator.count > 2
+				result << (calculator[n - 1] + calculator[n])
+				calculator.delete_at(n)
+				calculator << result[0]
+				calculator.delete_at(n-1)
+		elsif calculator == []
+			return "calculator is empty"
+		end
+		return result
+	end 
+
+	def calculator.subtract
+		i = 0 
+		n = (calculator.count - 1)
+		result = []
+		if calculator.count == 2  
+				result << (calculator[i] - calculator[n])
+				calculator.delete_at(0)
+				calculator << result[0]
+				calculator.delete_at(0)
+		elsif calculator.count > 2
+				result << (calculator[n - 1] - calculator[n])
+				calculator.delete_at(n)
+				calculator << result[0]
+				calculator.delete_at(n-1)
+		elsif calculator == []
+			return "calculator is empty"
+		end 
+		end  
+		return result 
+	end 
+	
+	def calculator.divide 
+		i = 0 
+		n = (calculator.count - 1)
+		result = []
+		if calculator.count == 2  
+				result << (calculator[i] / calculator[n])
+				calculator.delete_at(0)
+				calculator << result[0]
+				calculator.delete_at(0)
+		elsif calculator.count > 2
+				result << (calculator[n - 1] / calculator[n])
+				calculator.delete_at(n)
+				calculator << result[0]
+				calculator.delete_at(n-1)
+		elsif calculator == []
+			return "calculator is empty"
+		end  
+		return result 
+	end 
+	
+	def calculator.times 
+		i = 0 
+		n = (calculator.count - 1)
+		result = []
+		if calculator.count == 2  
+				result << (calculator[i] * calculator[n])
+				calculator.delete_at(0)
+				calculator << result[0]
+				calculator.delete_at(0)
+		elsif calculator.count > 2
+				result << (calculator[n - 1] * calculator[n])
+				calculator.delete_at(n)
+				calculator << result[0]
+				calculator.delete_at(n-1)
+		elsif calculator == []
+			return "calculator is empty"
+		end  
+		return result 
+	end 
+end
