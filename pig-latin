@@ -1,0 +1,39 @@
+def shift_pop(word, n)
+    hold = []
+    letters = word.split("")
+    i = 0
+    while i < n
+        hold << letters.shift
+        letters.push(hold[i])
+        i += 1
+    end
+    return letters.join("")
+end
+
+def pig_latin(string)
+    result = []
+    vowels = ["a", "e", "i", "o", "u"]
+    constonant = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
+    
+    words = string.split
+    i = 0
+   
+    while i < words.length 
+        word = words[i]
+        if vowels.include?(word[0])
+            result << word + "ay"
+        elsif word[0..1] == "qu"
+            result << shift_pop(word, 2) + "ay"
+        elsif constonant.include?(word[0]) && constonant.include?(word[1]) && constonant.include?(word[2])
+            result << shift_pop(word, 3) + "ay"
+        elsif constonant.include?(word[0]) && constonant.include?(word[1])
+            result << shift_pop(word, 2) + "ay"
+        else
+            result << shift_pop(word, 1) + "ay"
+        end 
+        
+        i += 1
+    end
+        return result.join(" ")
+        
+end 
